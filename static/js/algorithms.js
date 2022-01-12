@@ -30,8 +30,43 @@ const bubble_sort = () => {
 
 const insertion_sort = () => {
 
+    let comparison_idxs = []
+
+    let i = 1;
+    while (i < array.length) {
+        j = i;
+        while (j >= 0 && array[j - 1] > array[j]) {
+            comparison_idxs.push([j, j - 1, true]);
+            let temp = array[j];
+            array[j] = array[j - 1];
+            array[j - 1] = temp;
+            j -= 1;
+        }
+        i += 1;
+    }
+    animate_sort(comparison_idxs);
 }
 
-const quick_sort = () => {
+const selection_sort = () => {
+    let comparison_idxs = [];
 
+    for (let i = 0; i < array.length - 1; i++) {
+        jMin = i;
+        for (let j = i + 1; j < array.length; j++) {
+            comparison_idxs.push([j, jMin, false]);
+            if (array[j] < array[jMin]) {
+
+                jMin = j;
+            }
+        }
+        if (jMin != i) {
+            comparison_idxs.push([i, jMin, true]);
+            let temp = array[i];
+            array[i] = array[jMin];
+            array[jMin] = temp;
+
+        }
+        comparison_idxs.push([i]);
+    }
+    animate_sort(comparison_idxs);
 }

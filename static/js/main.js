@@ -64,7 +64,7 @@ async function animate_sort(comparison_idxs) {
             c2.className = "compare";
 
             if (swapping) {
-                await sleep(1000 / array_len);
+                await sleep(3000 / array_len);
                 c1.className = "swap";
                 c2.className = "swap";
 
@@ -73,12 +73,12 @@ async function animate_sort(comparison_idxs) {
                 c1.style.height = c2.style.height;
                 c2.style.height = temp;
 
-                await sleep(1000 / array_len);
+                await sleep(7000 / array_len);
                 c1.className = "compare";
                 c2.className = "compare";
             }
 
-            await sleep(1000 / array_len);
+            await sleep(3000 / array_len);
             c1.className = "column";
             c2.className = "column";
         } else {
